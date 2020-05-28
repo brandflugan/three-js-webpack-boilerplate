@@ -13,6 +13,24 @@ html {
   text-align: center;
 }
 
+body {
+  margin: 0;
+}
+
+canvas {
+  display: block;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 p {
   font-size: $paragraph-font-size;
 }

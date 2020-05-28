@@ -1,10 +1,37 @@
+import WebpackLogo from './images/webpack-logo.svg';
+import './styles/index.scss';
 import * as SceneSetup from './js/sceneSetup';
 import * as Mesh from './js/box/mesh';
 
-/* Define variables */
+/* Define DOM elements */
+const rootElement = document.querySelector('#root');
+const contentElement = document.querySelector('#content-wrapper');
+/* Define Three variables */
 let camera, scene, mesh, renderer;
 
-const init = () => {
+// Create SVG logo node
+const logo = document.createElement('img');
+logo.src = WebpackLogo;
+
+// Create heading node
+const greeting = document.createElement('h1');
+greeting.textContent = 'Hello world!';
+
+// Append SVG and heading nodes to the root element
+contentElement.append(logo, greeting);
+
+/* define onResize event */
+const onResize = () => {
+    camera.aspect =
+        window.innerWidth / (window.innerHeight - contentElement.offsetHeight);
+    camera.updateProjectionMatrix();
+    renderer.setSize(
+        window.innerWidth,
+        window.innerHeight - contentElement.offsetHeight
+    );
+};
+
+const initThreeJS = () => {
     /* Define camera */
     camera = SceneSetup.camera(window);
 
@@ -24,10 +51,16 @@ const init = () => {
     renderer = SceneSetup.renderer();
 
     /* Configurate renderer */
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(
+        window.innerWidth,
+        window.innerHeight - contentElement.offsetHeight
+    );
 
     /* Append element */
-    document.body.appendChild(renderer.domElement);
+    rootElement.appendChild(renderer.domElement);
+
+    /* Add event listener on resize */
+    window.addEventListener('resize', onResize, false);
 };
 
 const animate = () => {
@@ -41,21 +74,5 @@ const animate = () => {
     renderer.render(scene, camera);
 };
 
-init();
+initThreeJS();
 animate();
-/* import { MyScene } from './js/MyScene';
-import WebpackLogo from './images/webpack-logo.svg';
-import './styles/index.scss';
-
-// Create SVG logo node
-const logo = document.createElement('img');
-logo.src = WebpackLogo;
-
-// Create heading node
-const greeting = document.createElement('h1');
-greeting.textContent = MyScene();
-
-// Append SVG and heading nodes to the DOM
-const app = document.querySelector('#root');
-app.append(logo, greeting);
- */
