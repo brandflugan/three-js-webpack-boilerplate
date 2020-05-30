@@ -1,4 +1,5 @@
 import WebpackLogo from './images/webpack-logo.svg';
+import ThreeLogo from './images/three-icon.png';
 import './styles/index.scss';
 import * as SceneSetup from './js/sceneSetup';
 import * as Mesh from './js/box/mesh';
@@ -7,33 +8,41 @@ import * as Mesh from './js/box/mesh';
 const rootElement = document.querySelector('#root');
 const contentElement = document.querySelector('#content-wrapper');
 /* Define Three variables */
-let camera, scene, mesh, renderer;
+let camera, scene, mesh, renderer, aspectHeight, aspectWidth;
 
-// Create SVG logo node
-const logo = document.createElement('img');
-logo.src = WebpackLogo;
+const appendContent = () => {
+    // Create Webpack SVG logo node
+    const webpackLogo = document.createElement('img');
+    webpackLogo.src = WebpackLogo;
 
-// Create heading node
-const greeting = document.createElement('h1');
-greeting.textContent = 'Hello world!';
+    // Create Three.js PNG logo node
+    const threeLogo = document.createElement('img');
+    threeLogo.src = ThreeLogo;
 
-// Append SVG and heading nodes to the root element
-contentElement.append(logo, greeting);
+    // Create heading node
+    const greeting = document.createElement('h1');
+    greeting.textContent = 'Three.js Webpack boilerplate';
 
-/* define onResize event */
+    // Append logos and heading nodes to the content element
+    contentElement.querySelector('#logo-wrapper').append(threeLogo, webpackLogo);
+    contentElement.append(greeting);
+};
+
 const onResize = () => {
-    camera.aspect =
-        window.innerWidth / (window.innerHeight - contentElement.offsetHeight);
+    aspectWidth = window.innerWidth;
+    aspectHeight = window.innerHeight - contentElement.getBoundingClientRect().bottom;
+    camera.aspect = aspectWidth / aspectHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(
-        window.innerWidth,
-        window.innerHeight - contentElement.offsetHeight
-    );
+    renderer.setSize(aspectWidth, aspectHeight);
 };
 
 const initThreeJS = () => {
+    /* Define aspect */
+    aspectWidth = window.innerWidth;
+    aspectHeight = window.innerHeight - contentElement.getBoundingClientRect().bottom;
+
     /* Define camera */
-    camera = SceneSetup.camera(window);
+    camera = SceneSetup.camera(aspectWidth, aspectHeight);
 
     /* Configurate camera */
     camera.position.z = 1;
@@ -51,10 +60,7 @@ const initThreeJS = () => {
     renderer = SceneSetup.renderer();
 
     /* Configurate renderer */
-    renderer.setSize(
-        window.innerWidth,
-        window.innerHeight - contentElement.offsetHeight
-    );
+    renderer.setSize(aspectWidth, aspectHeight);
 
     /* Append element */
     rootElement.appendChild(renderer.domElement);
@@ -74,5 +80,7 @@ const animate = () => {
     renderer.render(scene, camera);
 };
 
+/* Run */
+appendContent();
 initThreeJS();
 animate();
