@@ -1,4 +1,4 @@
-# 📦 Webpack Boilerplate
+# 📦 Three.js Webpack Boilerplate
 Minimal Webpack 4 boilerplate with Three.js, Babel, Sass, ESLint, Hot Module Replacement, and development/production optimization.
 
 ## Installation

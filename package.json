@@ -14,13 +14,16 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "keywords": [
-    "webpack",
-    "webpack 4",
-    "webpack boilerplate",
     "boilerplate",
     "three",
     "threejs",
-    "three.js"
+    "three.js",
+    "three boilerplate",
+    "threejs boilerplate",
+    "three.js boilerplate",
+    "webpack",
+    "webpack 4",
+    "webpack boilerplate"
   ],
   "devDependencies": {
     "@babel/core": "7.10.1",
