@@ -1,12 +1,13 @@
+import './styles/index.scss';
 import WebpackLogo from './images/webpack-logo.svg';
 import ThreeLogo from './images/three-icon.png';
-import './styles/index.scss';
 import * as SceneSetup from './js/sceneSetup';
 import * as Mesh from './js/box/mesh';
 
 /* Define DOM elements */
 const rootElement = document.querySelector('#root');
 const contentElement = document.querySelector('#content-wrapper');
+
 /* Define Three variables */
 let camera, scene, mesh, renderer, aspectHeight, aspectWidth;
 
@@ -76,7 +77,7 @@ const animate = () => {
     mesh.rotation.x += 0.01;
     mesh.rotation.y += 0.02;
 
-    /* Render Three scene */
+    /* Render scene */
     renderer.render(scene, camera);
 };
 
