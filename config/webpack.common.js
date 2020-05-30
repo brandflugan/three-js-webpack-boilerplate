@@ -1,7 +1,8 @@
-const paths = require('./paths')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const paths = require('./paths');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   /**
@@ -41,9 +42,9 @@ module.exports = {
      * Copies files from target to destination folder.
      */
     new CopyWebpackPlugin({
-      patterns:[
-          { from: paths.static, to: 'assets' },
-        ]
+      patterns: [
+        { from: paths.static, to: 'assets' },
+      ]
     }),
 
     /**
@@ -57,6 +58,13 @@ module.exports = {
       template: paths.src + '/template.html', // template file
       filename: 'index.html', // output file
     }),
+
+    /**
+     * StylelintPlugin
+     *
+     * Linting plugin for stylesheets.
+     */
+    new StylelintPlugin({ configFile: './.stylelintrc', context: 'src', files: '**/*.scss' })
   ],
 
   /**

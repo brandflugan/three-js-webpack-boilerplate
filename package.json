@@ -11,7 +11,9 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "fix-styling": "npx stylelint **/*.scss --fix",
+    "fix-js": "./node_modules/.bin/eslint src --fix"
   },
   "keywords": [
     "boilerplate",
@@ -50,6 +52,9 @@
     "prettier": "^2.0.5",
     "sass-loader": "8.0.2",
     "style-loader": "1.2.1",
+    "stylelint": "^13.5.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-webpack-plugin": "^2.0.0",
     "terser-webpack-plugin": "3.0.2",
     "url-loader": "4.1.0",
     "webpack": "4.43.0",
