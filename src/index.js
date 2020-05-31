@@ -2,23 +2,16 @@ import './styles/index.scss';
 import WebpackLogo from './images/logos/webpack-logo.svg';
 import ThreeLogo from './images/logos/three-icon.png';
 import * as SceneSetup from './js/sceneSetup';
-import * as Box from './js/box/mesh';
+import * as InnerBox from './js/box/inner/mesh';
+import * as OuterBox from './js/box/outer/mesh';
+import * as Utils from './js/utils/utils';
 
 /* Define DOM elements */
 const rootElement = document.querySelector('#root');
 const contentElement = document.querySelector('#content-wrapper');
 
 /* Define Three variables */
-let camera,
-    controls,
-    ambientLight,
-    spotLight,
-    scene,
-    mesh,
-    renderer,
-    aspectHeight,
-    aspectWidth,
-    gridHelper;
+let camera, controls, scene, innerBox, outerBox, renderer, aspectHeight, aspectWidth, gridHelper;
 
 const appendContent = () => {
     // Create Webpack SVG logo node
@@ -55,31 +48,10 @@ const initThreeJS = () => {
     camera = SceneSetup.camera(aspectWidth, aspectHeight);
 
     /* Configurate camera */
-    camera.position.set(0, 5, 10);
+    camera.position.set(0, 5, 5.65);
 
     /* Define scene */
     scene = SceneSetup.scene();
-
-    /** Define ambient light **/
-    ambientLight = SceneSetup.ambientLight(0x222222);
-
-    /* Add ambient light to scene */
-    scene.add(ambientLight);
-
-    /* Define spot light */
-    spotLight = SceneSetup.spotLight(0xffffff);
-
-    /* Configure spot light */
-    spotLight.position.set(-100, 100, 100);
-    spotLight.castShadow = true;
-    spotLight.shadow.mapSize.width = 1024;
-    spotLight.shadow.mapSize.height = 1024;
-    spotLight.shadow.camera.near = 500;
-    spotLight.shadow.camera.far = 4000;
-    spotLight.shadow.camera.fov = 30;
-
-    /* Add spot light to scene */
-    scene.add(spotLight);
 
     /* Define grid helper */
     gridHelper = SceneSetup.gridHelper(20);
@@ -91,15 +63,27 @@ const initThreeJS = () => {
     /* Add grid helper to scene */
     scene.add(gridHelper);
 
-    /* Define mesh */
-    mesh = Box.mesh();
+    /* Define inner box */
+    innerBox = InnerBox.mesh();
 
-    /* Configure mesh */
-    mesh.position.setY(mesh.scale.x / 2);
-    mesh.castShadow = true;
+    /* Configure inner box */
+    innerBox.position.setY(1);
 
-    /* Add mesh to scene */
-    scene.add(mesh);
+    innerBox.rotation.y = Utils.convertRadToDeg(45);
+
+    /* Add inner mesh to box */
+    scene.add(innerBox);
+
+    /* Define outer box */
+    outerBox = OuterBox.mesh();
+
+    /* Configure outer box */
+    outerBox.position.setY(Utils.calculateMeshYPositionOnFloor(outerBox, gridHelper));
+    outerBox.material.side = 1;
+    outerBox.rotation.y = Utils.convertRadToDeg(45);
+
+    /* Configure outer box */
+    scene.add(outerBox);
 
     /* Define renderer */
     renderer = SceneSetup.renderer({ antialias: true });
@@ -112,6 +96,8 @@ const initThreeJS = () => {
 
     /* Configurate controls */
     controls.maxPolarAngle = (0.9 * Math.PI) / 2;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.15;
 
     /* Add event listener on resize */
     window.addEventListener('resize', onResize, false);
@@ -123,8 +109,8 @@ const initThreeJS = () => {
 const animate = () => {
     requestAnimationFrame(animate);
 
-    /* Configurate rotation of mesh for each tick */
-    mesh.rotation.y += 0.005;
+    /* Update controls when damping */
+    controls.update();
 
     /* Render scene */
     renderer.render(scene, camera);

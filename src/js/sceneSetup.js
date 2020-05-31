@@ -13,14 +13,6 @@ export const controls = (camera, element) => {
     return new OrbitControls(camera, element);
 };
 
-export const ambientLight = (color) => {
-    return new THREE.AmbientLight(color);
-};
-
-export const spotLight = (color) => {
-    return new THREE.SpotLight(color);
-};
-
 export const gridHelper = (size) => {
     return new THREE.GridHelper(size, size);
 };
