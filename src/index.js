@@ -68,7 +68,6 @@ const initThreeJS = () => {
 
     /* Configure inner box */
     innerBox.position.setY(1);
-
     innerBox.rotation.y = Utils.convertRadToDeg(45);
 
     /* Add inner mesh to box */
@@ -78,7 +77,7 @@ const initThreeJS = () => {
     outerBox = OuterBox.mesh();
 
     /* Configure outer box */
-    outerBox.position.setY(Utils.calculateMeshYPositionOnFloor(outerBox, gridHelper));
+    //outerBox.position.setY(Utils.calculateMeshYPositionOnFloor(outerBox, gridHelper));
     outerBox.material.side = 1;
     outerBox.rotation.y = Utils.convertRadToDeg(45);
 
