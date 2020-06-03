@@ -2,13 +2,13 @@
 <p align="center">
   <img
     src="./src/images/logos/three-icon.png"
-    alt="Subject Pronouns"
-    style="height: 100px;"
+    alt="Three.js logo"
+    height="100px"
   />
   <img
     src="./src/images/logos/webpack-logo.svg"
-    alt="Subject Pronouns"
-    style="height: 100px;"
+    alt="Webpack logo"
+    height="100px"
   />
 </p>
 <p align="center">
