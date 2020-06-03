@@ -64,7 +64,7 @@ npm run fix-styling
 ```
 
 ## Features
-
+- [Three.js](https://threejs.org/)
 - [Webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
 - [Sass](https://sass-lang.com/)
@@ -73,12 +73,10 @@ npm run fix-styling
 - [stylelint](https://stylelint.io/)
 
 ## Dependencies
-
 ### Three.js
-- [`three.js`](https://github.com/mrdoob/three.js) - Three.js framework.
+- [`Three.js`](https://github.com/mrdoob/three.js) - Three.js framework.
 
 ### Webpack
-
 - [`webpack`](https://github.com/webpack/webpack) - Module and asset bundler.
 - [`webpack-cli`](https://github.com/webpack/webpack-cli) - Command line interface for Webpack.
 - [`webpack-dev-server`](https://github.com/webpack/webpack-dev-server) - Development server for Webpack.
