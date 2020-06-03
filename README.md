@@ -80,8 +80,6 @@ npm run fix-styling
 - [`webpack`](https://github.com/webpack/webpack) - Module and asset bundler.
 - [`webpack-cli`](https://github.com/webpack/webpack-cli) - Command line interface for Webpack.
 - [`webpack-dev-server`](https://github.com/webpack/webpack-dev-server) - Development server for Webpack.
-- [`webpack-merge`](https://github.com/survivejs/webpack-merge) - Simplify development/production configuration
-- [`cross-env`](https://github.com/kentcdodds/cross-env) - Cross platform configuration.
 
 ### Babel
 
@@ -89,7 +87,8 @@ npm run fix-styling
 - [`@babel/plugin-proposal-class-properties`](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) - Use properties directly on a class.
 - [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env) - Smart defaults for Babel.
 - [`babel-eslint`](https://github.com/babel/babel-eslint) - Lint Babel code.
-  - [`eslint`](https://github.com/eslint/eslint) - ESLint.
+- [`babel-polyfill`](https://babeljs.io/docs/en/babel-polyfill) - This will emulate a full ES2015+ environment.
+- [`eslint`](https://github.com/eslint/eslint) - ESLint.
 
 ### Loaders
 
@@ -113,7 +112,6 @@ npm run fix-styling
 - [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extract CSS into separate files.
 - [`optimize-css-assets-webpack-plugin`](https://github.com/NMFR/optimize-css-assets-webpack-plugin) - Optimize and minimize CSS assets.
 - [`stylelint-webpack-plugin`](https://github.com/webpack-contrib/stylelint-webpack-plugin) - A Stylelint plugin for webpack.
-- [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Minify JavaScript.
 
 ## Author & Contributors
 - [`Guillaume Fradin`](https://github.com/frading)
