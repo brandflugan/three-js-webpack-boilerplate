@@ -10,13 +10,11 @@
     height="94px"
   />
 </div>
-  <br>
   <h1 align="center"!>Three.js Webpack Boilerplate</h1>
   <p align="center">
     A Webpack 4 & Three.js boilerplate together with Babel, Sass, ESLint, Hot Module Replacement and Stylelint, optimized for development/production.
   </p>
   <h1></h1>
-  <br>
 </div>
 
 ## Installation
