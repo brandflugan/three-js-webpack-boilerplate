@@ -1,14 +1,14 @@
-# 📦 Three.js Webpack Boilerplate
+# 🦥 Three.js Webpack Boilerplate
 <p align="center">
   <img
     src="./src/images/logos/three-icon.png?raw=true"
     alt="Three.js logo"
-    height="80px"
+    height="100px"
   />
   <img
     src="./src/images/logos/webpack-logo.svg?raw=true"
     alt="Webpack logo"
-    height="100px"
+    height="94px"
   />
 </p>
 <p align="center">
