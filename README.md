@@ -1,5 +1,4 @@
-# 🦥 Three.js Webpack Boilerplate
-<p align="center">
+<div align="center">
   <img
     src="./src/images/logos/three-icon.png?raw=true"
     alt="Three.js logo"
@@ -10,10 +9,15 @@
     alt="Webpack logo"
     height="94px"
   />
-</p>
-<p align="center">
-  A Webpack 4 & Three.js boilerplate together with Babel, Sass, ESLint, Hot Module Replacement and Stylelint, optimized for development/production.
-</p>
+</div>
+  <br>
+  <h1 align="center"!>Three.js Webpack Boilerplate</h1>
+  <p align="center">
+    A Webpack 4 & Three.js boilerplate together with Babel, Sass, ESLint, Hot Module Replacement and Stylelint, optimized for development/production.
+  </p>
+  <h1></h1>
+  <br>
+</div>
 
 ## Installation
 
