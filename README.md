@@ -1,5 +1,19 @@
 # 📦 Three.js Webpack Boilerplate
-Minimal Webpack 4 boilerplate with Three.js, Babel, Sass, ESLint, Hot Module Replacement, and development/production optimization.
+<p align="center">
+  <img
+    src="./src/images/logos/three-icon.png"
+    alt="Subject Pronouns"
+    style="height: 100px;"
+  />
+  <img
+    src="./src/images/logos/webpack-logo.svg"
+    alt="Subject Pronouns"
+    style="height: 100px;"
+  />
+</p>
+<p align="center">
+  A Webpack 4 & Three.js boilerplate together with Babel, Sass, ESLint, Hot Module Replacement and Stylelint, optimized for development/production.
+</p>
 
 ## Installation
 
