@@ -39,7 +39,7 @@ const onResize = () => {
     renderer.setSize(aspectWidth, aspectHeight);
 };
 
-const initThreeJS = () => {
+const initThreeJS = async () => {
     /* Define aspect */
     aspectWidth = window.innerWidth;
     aspectHeight = window.innerHeight - contentElement.getBoundingClientRect().bottom;
@@ -74,7 +74,7 @@ const initThreeJS = () => {
     scene.add(innerBox);
 
     /* Define outer box */
-    outerBox = OuterBox.mesh();
+    outerBox = await OuterBox.mesh();
 
     /* Configure outer box */
     //outerBox.position.setY(Utils.calculateMeshYPositionOnFloor(outerBox, gridHelper));
@@ -117,5 +117,4 @@ const animate = () => {
 
 /* Run */
 appendContent();
-initThreeJS();
-animate();
+initThreeJS().then(() => animate());
