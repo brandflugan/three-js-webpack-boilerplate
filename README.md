@@ -101,9 +101,9 @@ npm run fix-styling
 - [`stylelint-webpack-plugin`](https://github.com/webpack-contrib/stylelint-webpack-plugin) - A Stylelint plugin for webpack.
 - [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Minify JavaScript.
 
-## Author
-
-- Markus Bjerre
+## Author & Contributors
+- [`Guillaume Fradin`](https://github.com/frading)
+- [`Markus Bjerre`](https://github.com/brandflugan) - Author
 
 ## License
 
