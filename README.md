@@ -3,11 +3,14 @@
   <img
     src="./src/images/logos/three-icon.png"
     alt="Three.js logo"
-    height="100px"
+    raw=true
+    height="80px"
   />
   <img
     src="./src/images/logos/webpack-logo.svg"
     alt="Webpack logo"
+    raw=true
+    style="margin-bottom: -10px;"
     height="100px"
   />
 </p>
