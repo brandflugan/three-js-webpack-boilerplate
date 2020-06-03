@@ -36,6 +36,17 @@ You can view the deploy by creating a server in `dist`.
 cd dist && http-server
 ```
 
+### Fix lint issues
+#### Javascript
+```bash
+npm run fix-js
+```
+
+#### SCSS/CSS
+```bash
+npm run fix-styling
+```
+
 ## Features
 
 - [Webpack](https://webpack.js.org/)
@@ -43,6 +54,7 @@ cd dist && http-server
 - [Sass](https://sass-lang.com/)
 - [PostCSS](https://postcss.org/)
 - [ESLint](https://eslint.org/)
+- [stylelint](https://stylelint.io/)
 
 ## Dependencies
 
@@ -86,6 +98,7 @@ cd dist && http-server
 - [`html-webpack-plugin`](https://github.com/jantimon/html-webpack-plugin) - Generate HTML files from template.
 - [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extract CSS into separate files.
 - [`optimize-css-assets-webpack-plugin`](https://github.com/NMFR/optimize-css-assets-webpack-plugin) - Optimize and minimize CSS assets.
+- [`stylelint-webpack-plugin`](https://github.com/webpack-contrib/stylelint-webpack-plugin) - A Stylelint plugin for webpack.
 - [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Minify JavaScript.
 
 ## Author

@@ -1,17 +1,15 @@
 import './styles/index.scss';
 import WebpackLogo from './images/logos/webpack-logo.svg';
 import ThreeLogo from './images/logos/three-icon.png';
-import * as SceneSetup from './js/sceneSetup';
-import * as InnerBox from './js/box/inner/mesh';
-import * as OuterBox from './js/box/outer/mesh';
-import * as Utils from './js/utils/utils';
+import * as SceneSetup from './js/utils/sceneSetup';
+import * as ReactCube from './js/box/group';
 
 /* Define DOM elements */
 const rootElement = document.querySelector('#root');
 const contentElement = document.querySelector('#content-wrapper');
 
 /* Define Three variables */
-let camera, controls, scene, innerBox, outerBox, renderer, aspectHeight, aspectWidth, gridHelper;
+let camera, controls, scene, renderer, aspectHeight, aspectWidth, gridHelper;
 
 const appendContent = () => {
     // Create Webpack SVG logo node
@@ -63,26 +61,8 @@ const initThreeJS = async () => {
     /* Add grid helper to scene */
     scene.add(gridHelper);
 
-    /* Define inner box */
-    innerBox = InnerBox.mesh();
-
-    /* Configure inner box */
-    innerBox.position.setY(1);
-    innerBox.rotation.y = Utils.convertRadToDeg(45);
-
-    /* Add inner mesh to box */
-    scene.add(innerBox);
-
-    /* Define outer box */
-    outerBox = await OuterBox.mesh();
-
-    /* Configure outer box */
-    //outerBox.position.setY(Utils.calculateMeshYPositionOnFloor(outerBox, gridHelper));
-    outerBox.material.side = 1;
-    outerBox.rotation.y = Utils.convertRadToDeg(45);
-
-    /* Configure outer box */
-    scene.add(outerBox);
+    /* Add react cube to scene */
+    scene.add(await ReactCube.group());
 
     /* Define renderer */
     renderer = SceneSetup.renderer({ antialias: true });
