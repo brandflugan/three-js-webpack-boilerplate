@@ -114,6 +114,7 @@ npm run fix-styling
 - [`stylelint-webpack-plugin`](https://github.com/webpack-contrib/stylelint-webpack-plugin) - A Stylelint plugin for webpack.
 
 ## Author & Contributors
+- [`Rickard Börjesson`](https://github.com/rickepicke)
 - [`Guillaume Fradin`](https://github.com/frading)
 - [`Markus Bjerre`](https://github.com/brandflugan) - Author
 
