@@ -3,27 +3,25 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const artifact = require('./package.json');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const fileName = `${artifact.name}-${artifact.version.slice(0, 3)}`;
+
 module.exports = (env, argv) => ({
     entry: {
         [fileName]: './src/index.js',
     },
     output: {
-        filename: '[name].[hash].bundle.js',
+        filename: '[name].[fullhash].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
     },
     devServer: {
         historyApiFallback: true,
-        contentBase: path.resolve(__dirname, '../dist'),
         open: true,
         compress: true,
-        hot: true,
         port: 8080,
     },
     module: {
@@ -31,7 +29,7 @@ module.exports = (env, argv) => ({
             {
                 test: /\.(scss|css)$/,
                 use: [
-                    argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+                    { loader: 'style-loader' },
                     { loader: 'css-loader', options: { sourceMap: true, importLoaders: 1 } },
                     { loader: 'postcss-loader', options: { sourceMap: true } },
                     { loader: 'sass-loader', options: { sourceMap: true } },
@@ -40,7 +38,7 @@ module.exports = (env, argv) => ({
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
-                use: ['babel-loader', 'eslint-loader']
+                use: ['babel-loader'],
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg|stl)$/i,
@@ -62,14 +60,10 @@ module.exports = (env, argv) => ({
         ],
     },
     plugins: [
-        ...(argv.mode === 'production' ? [new CleanWebpackPlugin({ verbose: true })] : []),
         new webpack.HotModuleReplacementPlugin(),
+        new ESLintPlugin(),
         new CopyWebpackPlugin({
             patterns: [{ from: path.resolve(__dirname, 'public'), to: 'assets' }],
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'styles/[name].[hash].css',
-            chunkFilename: '[id].css',
         }),
         new HtmlWebpackPlugin({
             title: 'Three.js Webpack Boilerplate',
@@ -77,9 +71,9 @@ module.exports = (env, argv) => ({
             template: path.resolve(__dirname, 'src/template.html'), // template file
             filename: 'index.html', // output file
         }),
-        new StylelintPlugin({ configFile: './.stylelintrc', context: 'src', files: '**/*.scss' }),
+        new StylelintPlugin({ configFile: './stylelintrc.json', context: 'src', files: '**/*.scss' }),
     ],
-    devtool: argv.mode === 'production' ? 'none' : 'eval-source-map',
+    devtool: 'eval-source-map',
     performance: {
         hints: false,
         maxEntrypointSize: 512000,

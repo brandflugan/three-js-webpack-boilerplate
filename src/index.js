@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import './styles/index.scss';
 import WebpackLogo from './images/logos/webpack-logo.svg';
 import ThreeLogo from './images/logos/three-icon.png';
