@@ -12,7 +12,7 @@
 </div>
   <h1 align="center"!>Three.js Webpack Boilerplate</h1>
   <p align="center">
-    A Webpack 4 & Three.js boilerplate together with Babel, Sass, ESLint, Hot Module Replacement and Stylelint, optimized for development/production.
+    A Webpack 5 & Three.js boilerplate together with Babel, Sass, ESLint, Hot Module Replacement and Stylelint, optimized for development/production.
   </p>
   <br>
 </div>
@@ -72,7 +72,6 @@ npm run fix-styling
 -   [Webpack](https://webpack.js.org/)
 -   [Babel](https://babeljs.io/)
 -   [Sass](https://sass-lang.com/)
--   [PostCSS](https://postcss.org/)
 -   [ESLint](https://eslint.org/)
 -   [stylelint](https://stylelint.io/)
 
@@ -91,7 +90,6 @@ npm run fix-styling
 ### Babel
 
 -   [`@babel/core`](https://www.npmjs.com/package/@babel/core) - Transpile ES6+ to backwards compatible JavaScript.
--   [`@babel/plugin-proposal-class-properties`](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) - Use properties directly on a class.
 -   [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env) - Smart defaults for Babel.
 -   [`babel-eslint`](https://github.com/babel/babel-eslint) - Lint Babel code.
 -   [`babel-polyfill`](https://babeljs.io/docs/en/babel-polyfill) - This will emulate a full ES2015+ environment.
@@ -115,7 +113,6 @@ npm run fix-styling
 -   [`clean-webpack-plugin`](https://github.com/johnagan/clean-webpack-plugin) - Remove/clean build folders.
 -   [`copy-webpack-plugin`](https://github.com/webpack-contrib/copy-webpack-plugin) - Copy files to build directory.
 -   [`html-webpack-plugin`](https://github.com/jantimon/html-webpack-plugin) - Generate HTML files from template.
--   [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extract CSS into separate files.
 -   [`stylelint-webpack-plugin`](https://github.com/webpack-contrib/stylelint-webpack-plugin) - A Stylelint plugin for webpack.
 
 ## Author & Contributors
