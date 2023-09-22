@@ -1,9 +1,10 @@
+@import url('variables');
+
 @font-face {
-    font-family: 'Roboto';
-    src: url(../fonts/Roboto-Regular.ttf);
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.ttf') format('ttf');
 }
 
-@import 'variables';
 
 html {
     font-size: $root-font-size;
