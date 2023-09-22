@@ -71,7 +71,7 @@ module.exports = (env, argv) => ({
             template: path.resolve(__dirname, 'src/template.html'), // template file
             filename: 'index.html', // output file
         }),
-        new StylelintPlugin({ configFile: './stylelintrc.json', context: 'src', files: '**/*.scss' }),
+        new StylelintPlugin({ configFile: './.stylelintrc.json', context: 'src', files: '**/*.scss' }),
     ],
     devtool: 'eval-source-map',
     performance: {
