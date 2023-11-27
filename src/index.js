@@ -40,6 +40,7 @@ const onResize = () => {
 const initThreeJS = async () => {
     /* Define aspect */
     aspectWidth = window.innerWidth;
+
     aspectHeight = window.innerHeight - contentElement.getBoundingClientRect().bottom;
 
     /* Define camera */
